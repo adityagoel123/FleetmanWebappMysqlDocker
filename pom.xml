@@ -195,7 +195,7 @@
 							<build>
 								<!--  TODO better to have this in a subdirectory -->
 								<dockerFileDir>${project.basedir}/src/main/docker/</dockerFileDir>
-								
+
                                 <!--copies artficact to docker build dir in target-->
 								<assembly>
 									<descriptorRef>artifact</descriptorRef>

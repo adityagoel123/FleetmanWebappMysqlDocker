@@ -1,23 +1,27 @@
 version: "3"
-
 services:
 
-   fleetman-webapp:
-      image: virtualpairprogrammers/fleetman-production
+   webappwithmysql-fleetman-cont:
+      image: adityagoel123/fleetman-web-with-mysql
       networks:
-         - fleetman-network
+         - aditya-network
       ports:
-         - 80:8080
+         - 8084:8080
       depends_on: 
-         - database
+         - mysqldbpanga
 
-   database:
+   mysqldbpanga:
       image: mysql:5
       networks:
-         - fleetman-network
+         - aditya-network
       environment:
          - MYSQL_ROOT_PASSWORD=password
          - MYSQL_DATABASE=fleetman
+      volumes:
+         - aditya-volume:/var/lib/mysql
+
+volumes:
+   aditya-volume:
 
 networks:
-   fleetman-network:
+   aditya-network:
